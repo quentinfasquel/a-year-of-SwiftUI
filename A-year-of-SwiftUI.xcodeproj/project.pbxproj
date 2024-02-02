@@ -14,10 +14,16 @@
 		661764512B667E35004B4DBF /* TimelineViewExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661764502B667E35004B4DBF /* TimelineViewExample.swift */; };
 		661764542B6684B3004B4DBF /* CanvasExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661764532B6684B3004B4DBF /* CanvasExample.swift */; };
 		661764572B668ADA004B4DBF /* TimelineCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661764562B668ADA004B4DBF /* TimelineCanvasView.swift */; };
-		6617645B2B66D407004B4DBF /* OverlayPreferenceExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6617645A2B66D407004B4DBF /* OverlayPreferenceExample.swift */; };
+		6617645B2B66D407004B4DBF /* AnchorNavigationTransitionExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6617645A2B66D407004B4DBF /* AnchorNavigationTransitionExample.swift */; };
+		66AB3D622B6D88F40027A484 /* AnchorPreferenceExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AB3D612B6D88F40027A484 /* AnchorPreferenceExample.swift */; };
+		66AB3D652B6EB1640027A484 /* EffectsExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AB3D642B6EB1640027A484 /* EffectsExample.swift */; };
+		66AB3D672B6EB1920027A484 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 66AB3D662B6EB1920027A484 /* Shaders.metal */; };
 		66BA1A4D2B68405F00DF4FE0 /* AnchorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BA1A4C2B68405F00DF4FE0 /* AnchorView.swift */; };
 		66BA1A502B68416000DF4FE0 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = 66BA1A4F2B68416000DF4FE0 /* SwiftUIIntrospect */; };
-		66BA1A532B68418000DF4FE0 /* NavigationBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BA1A522B68418000DF4FE0 /* NavigationBackground.swift */; };
+		66D16A192B726E0100D5666E /* bordeaux.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 66D16A182B726DF500D5666E /* bordeaux.mp4 */; };
+		66D16A1B2B726E7100D5666E /* DependencyExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D16A1A2B726E7100D5666E /* DependencyExample.swift */; };
+		66D16A222B7274CE00D5666E /* FirebaseAPICient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D16A212B7274CE00D5666E /* FirebaseAPICient.swift */; };
+		66D16A252B72750200D5666E /* APIClient in Frameworks */ = {isa = PBXBuildFile; productRef = 66D16A242B72750200D5666E /* APIClient */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +35,15 @@
 		661764502B667E35004B4DBF /* TimelineViewExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewExample.swift; sourceTree = "<group>"; };
 		661764532B6684B3004B4DBF /* CanvasExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasExample.swift; sourceTree = "<group>"; };
 		661764562B668ADA004B4DBF /* TimelineCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCanvasView.swift; sourceTree = "<group>"; };
-		6617645A2B66D407004B4DBF /* OverlayPreferenceExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPreferenceExample.swift; sourceTree = "<group>"; };
+		6617645A2B66D407004B4DBF /* AnchorNavigationTransitionExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorNavigationTransitionExample.swift; sourceTree = "<group>"; };
+		66AB3D612B6D88F40027A484 /* AnchorPreferenceExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorPreferenceExample.swift; sourceTree = "<group>"; };
+		66AB3D642B6EB1640027A484 /* EffectsExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsExample.swift; sourceTree = "<group>"; };
+		66AB3D662B6EB1920027A484 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		66BA1A4C2B68405F00DF4FE0 /* AnchorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorView.swift; sourceTree = "<group>"; };
-		66BA1A522B68418000DF4FE0 /* NavigationBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackground.swift; sourceTree = "<group>"; };
+		66D16A182B726DF500D5666E /* bordeaux.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bordeaux.mp4; sourceTree = "<group>"; };
+		66D16A1A2B726E7100D5666E /* DependencyExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyExample.swift; sourceTree = "<group>"; };
+		66D16A202B72730600D5666E /* APIClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = APIClient; sourceTree = "<group>"; };
+		66D16A212B7274CE00D5666E /* FirebaseAPICient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPICient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66BA1A502B68416000DF4FE0 /* SwiftUIIntrospect in Frameworks */,
+				66D16A252B72750200D5666E /* APIClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +64,7 @@
 			children = (
 				661764402B667E04004B4DBF /* A-year-of-SwiftUI */,
 				6617643F2B667E04004B4DBF /* Products */,
+				66D16A232B72750200D5666E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +85,10 @@
 				661764522B6684A3004B4DBF /* 1-Canvas */,
 				6617644F2B667E27004B4DBF /* 2-TimelineView */,
 				661764552B668AA5004B4DBF /* 3-Summary-1-2 */,
-				661764592B66D3E4004B4DBF /* 4-InteractiveAnimation */,
-				661764582B66D3D6004B4DBF /* 5-OverlayPreference */,
+				66AB3D632B6EB1270027A484 /* 4-Effects */,
+				661764592B66D3E4004B4DBF /* 5-InteractiveAnimation */,
+				661764582B66D3D6004B4DBF /* 6-OverlayPreference */,
+				66AB3D682B6FF35F0027A484 /* 7-Dependencies */,
 				661764452B667E06004B4DBF /* Assets.xcassets */,
 				661764472B667E06004B4DBF /* Preview Content */,
 			);
@@ -82,6 +98,7 @@
 		661764472B667E06004B4DBF /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				66D16A182B726DF500D5666E /* bordeaux.mp4 */,
 				661764482B667E06004B4DBF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -111,28 +128,54 @@
 			path = "3-Summary-1-2";
 			sourceTree = "<group>";
 		};
-		661764582B66D3D6004B4DBF /* 5-OverlayPreference */ = {
+		661764582B66D3D6004B4DBF /* 6-OverlayPreference */ = {
 			isa = PBXGroup;
 			children = (
-				6617645A2B66D407004B4DBF /* OverlayPreferenceExample.swift */,
-				66BA1A4C2B68405F00DF4FE0 /* AnchorView.swift */,
+				66AB3D612B6D88F40027A484 /* AnchorPreferenceExample.swift */,
+				6617645A2B66D407004B4DBF /* AnchorNavigationTransitionExample.swift */,
 			);
-			path = "5-OverlayPreference";
+			path = "6-OverlayPreference";
 			sourceTree = "<group>";
 		};
-		661764592B66D3E4004B4DBF /* 4-InteractiveAnimation */ = {
+		661764592B66D3E4004B4DBF /* 5-InteractiveAnimation */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "4-InteractiveAnimation";
+			path = "5-InteractiveAnimation";
+			sourceTree = "<group>";
+		};
+		66AB3D632B6EB1270027A484 /* 4-Effects */ = {
+			isa = PBXGroup;
+			children = (
+				66AB3D662B6EB1920027A484 /* Shaders.metal */,
+				66AB3D642B6EB1640027A484 /* EffectsExample.swift */,
+			);
+			path = "4-Effects";
+			sourceTree = "<group>";
+		};
+		66AB3D682B6FF35F0027A484 /* 7-Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				66D16A202B72730600D5666E /* APIClient */,
+				66D16A1A2B726E7100D5666E /* DependencyExample.swift */,
+				66D16A212B7274CE00D5666E /* FirebaseAPICient.swift */,
+			);
+			path = "7-Dependencies";
 			sourceTree = "<group>";
 		};
 		66BA1A512B68417200DF4FE0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				66BA1A522B68418000DF4FE0 /* NavigationBackground.swift */,
+				66BA1A4C2B68405F00DF4FE0 /* AnchorView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		66D16A232B72750200D5666E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +196,7 @@
 			name = "A-year-of-SwiftUI";
 			packageProductDependencies = (
 				66BA1A4F2B68416000DF4FE0 /* SwiftUIIntrospect */,
+				66D16A242B72750200D5666E /* APIClient */,
 			);
 			productName = "A-year-of-SwiftUI";
 			productReference = 6617643E2B667E04004B4DBF /* A-year-of-SwiftUI.app */;
@@ -201,6 +245,7 @@
 			files = (
 				661764492B667E06004B4DBF /* Preview Assets.xcassets in Resources */,
 				661764462B667E06004B4DBF /* Assets.xcassets in Resources */,
+				66D16A192B726E0100D5666E /* bordeaux.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,12 +256,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6617645B2B66D407004B4DBF /* OverlayPreferenceExample.swift in Sources */,
+				6617645B2B66D407004B4DBF /* AnchorNavigationTransitionExample.swift in Sources */,
+				66D16A1B2B726E7100D5666E /* DependencyExample.swift in Sources */,
 				661764442B667E04004B4DBF /* ContentView.swift in Sources */,
 				661764512B667E35004B4DBF /* TimelineViewExample.swift in Sources */,
+				66D16A222B7274CE00D5666E /* FirebaseAPICient.swift in Sources */,
+				66AB3D652B6EB1640027A484 /* EffectsExample.swift in Sources */,
 				66BA1A4D2B68405F00DF4FE0 /* AnchorView.swift in Sources */,
 				661764572B668ADA004B4DBF /* TimelineCanvasView.swift in Sources */,
-				66BA1A532B68418000DF4FE0 /* NavigationBackground.swift in Sources */,
+				66AB3D622B6D88F40027A484 /* AnchorPreferenceExample.swift in Sources */,
+				66AB3D672B6EB1920027A484 /* Shaders.metal in Sources */,
 				661764542B6684B3004B4DBF /* CanvasExample.swift in Sources */,
 				661764422B667E04004B4DBF /* AppMain.swift in Sources */,
 			);
@@ -443,6 +492,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 66BA1A4E2B68416000DF4FE0 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
 			productName = SwiftUIIntrospect;
+		};
+		66D16A242B72750200D5666E /* APIClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = APIClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

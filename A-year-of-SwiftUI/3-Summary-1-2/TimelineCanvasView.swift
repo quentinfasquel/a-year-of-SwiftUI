@@ -8,23 +8,18 @@
 import SwiftUI
 
 struct TimelineCanvasView: View {
-//    @GestureState var draggingY: CGFloat = 0
-    @State private var y: CGFloat = 0
-    let startDate = Date.now
+    var startDate = Date.now
+
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
-
-            Rectangle().fill(.blue).ignoresSafeArea()
+            Rectangle().fill(.black.gradient).ignoresSafeArea()
 
             TimelineView(.animation) { timeline in
                 let ellapsedTime = timeline.date.timeIntervalSince(startDate)
                 Canvas { context, size in
                     let rect = CGRect(origin: .zero, size: size)
-                    let phase = ellapsedTime * .pi * 2
-                    let wave = Path.wave(strength: 50 + y, frequency: 30, phase: phase, in: rect)
-
-//                    context.stroke(wave, with: .color(.white), lineWidth: 4)
+                    let phase: CGFloat = ellapsedTime * .pi * 2
+                    let wave = Path.wave(strength: 50, frequency: 30, phase: phase, in: rect)
 
                     for i in 0..<10 {
                         let strokeColor = Color(white: 1, opacity: Double(i) / 10)
@@ -32,28 +27,17 @@ struct TimelineCanvasView: View {
                         context.stroke(path, with: .color(strokeColor), lineWidth: 4)
                     }
                 }
-                .animation(.snappy, value: y)
+                .offset(y: -100)
             }
-            .gesture(DragGesture()
-//                .updating($y) { value, state, tr in
-//
-//                    state = value.translation.height
-//
-//                }
-                .onChanged { value in
-                    y = value.translation.height
-                }
-                .onEnded{ value in
-//                    withAnimation(.snappy) {
-                        y = 0
-//                    }
-                }
-            )
-
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("TimelineView + Canvas")
     }
 }
 
 #Preview {
-    TimelineCanvasView()
+    NavigationStack {
+        TimelineCanvasView()
+    }
+    .preferredColorScheme(.dark)
 }

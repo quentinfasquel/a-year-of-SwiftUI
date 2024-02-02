@@ -7,43 +7,49 @@
 
 import SwiftUI
 
-struct TimerExample: View {
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State private var date: Date = .now
-
-    var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
-            Text(string(for: date))
-                .font(.system(size: 40, weight: .semibold))
-                .foregroundStyle(.white)
-        }
-        .onReceive(timer) { _ in
-            date = .now
-        }
-    }
-}
-
 struct TimelineViewExample: View {
+    enum Symbol: Hashable {
+        case time
+    }
+
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Rectangle().fill(.black.gradient).ignoresSafeArea()
             TimelineView(.periodic(from: .now, by: 0.01)) { timeline in
-                Text(string(for: timeline.date))
-                    .animation(.default, value: timeline.date)
+                Canvas { context, size in
+                    if let time = context.resolveSymbol(id: Symbol.time) {
+                        context.draw(time, at: CGPoint(
+                            x: size.width * 0.5,
+                            y: size.height * 0.5
+                        ))
+                        context.scaleBy(x: 1, y: -1)
+                        context.opacity = 0.4
+                        context.addFilter(.blur(radius: 3))
+                        context.draw(time, at: CGPoint(
+                            x: size.width * 0.5,
+                            y: -size.height * 0.5 - 30))
+                    }
+                } symbols: {
+                    Text(string(for: timeline.date))
+                        .font(.system(size: 40, weight: .semibold, design: .monospaced))
+                        .foregroundStyle(.foreground)
+                        .animation(.default, value: timeline.date)
+                        .contentTransition(.numericText())
+                        .tag(Symbol.time)
+                }
             }
-            .font(.system(size: 40, weight: .semibold))
-            .foregroundStyle(.white)
+            .ignoresSafeArea()
         }
     }
 }
-
 
 #Preview {
-//    VStack(spacing: 1) {
-        TimerExample()
-//        TimelineViewExample()
-//    }
+    NavigationStack {
+        TimelineViewExample()
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Timeline View")
+    }
+    .preferredColorScheme(.dark)
 }
 
 // MARK: - Time Formatter

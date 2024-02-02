@@ -11,10 +11,10 @@ import SwiftUI
 struct AppMain: App {
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-//            CanvasExample()
-//            TimelineCanvasView()
-            OverlayPreferenceExample()
+            // NOTE TO READER:
+            // Forget about UIKit.         ...just kidding        ...or maybe not.
+            ContentView()
+                .preferredColorScheme(.dark)
         }
     }
 }

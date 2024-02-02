@@ -7,14 +7,21 @@
 
 import SwiftUI
 
-fileprivate let iconDataSource = ["heart.fill", "bolt.fill", "suitcase.fill"]
+fileprivate let iconDataSource = [
+    "heart.fill",
+    "bolt.fill",
+    "suitcase.fill",
+    "leaf.fill",
+    "star.fill",
+    "hand.raised.fill",
+]
 
 struct AnchorTransition {
     var isPushed: Bool = false
     var isFinished: Bool = false
 }
 
-struct OverlayPreferenceExample: View {
+struct AnchorNavigationTransitionExample: View {
     @State private var selectedIcon: String?
     @State private var animation: AnchorTransition = .init()
 
@@ -23,44 +30,42 @@ struct OverlayPreferenceExample: View {
             ListView(selectedIcon: $selectedIcon, animation: $animation)
                 .navigationDestination(isPresented: $animation.isPushed) {
                     DetailView(selectedIcon: $selectedIcon, animation: $animation)
-//                        .viewBackground(color: .clear)
                 }
         }
-//        .navigationBackground(color: .clear)
         .overlayPreferenceValue(IconAnchorPreferenceKey.self) { value in
-//            GeometryReader { geometryProxy in
-//                ForEach(iconDataSource, id: \.self) { icon in
-//                    if let anchor = value[icon], selectedIcon == icon  {
-//                        let rect = geometryProxy[anchor]
-//                        IconView(name: icon)
-//                            .frame(width: rect.width, height: rect.height)
-//                            .offset(x: rect.minX, y: rect.minY)
-//                            // Animate changes of the anchor
-//                            .animation(.snappy, value: rect)
-//                            // Set hidden when transition is finished
-//                            .opacity(animation.isFinished ? 0 : 1)
-//                    }
-//                }
-//            }
-            if let selectedIcon {
-                AnchorView(conditionValue: selectedIcon, anchorKey: selectedIcon, in: value) { IconView(name: $0).opacity(animation.isFinished ? 0 : 1)
+            GeometryReader { geometryProxy in
+                ForEach(iconDataSource, id: \.self) { icon in
+                    if let anchor = value[icon], selectedIcon == icon  {
+                        let rect = geometryProxy[anchor]
+                        IconView(name: icon)
+                            .frame(width: rect.width, height: rect.height)
+                            .offset(x: rect.minX, y: rect.minY)
+                            // Animate changes of the anchor
+                            .animation(.snappy, value: rect)
+                            // Set hidden when transition is finished
+                            .opacity(animation.isFinished ? 0 : 1)
+                    }
                 }
             }
         }
     }
 }
 
-
+#Preview {
+    AnchorNavigationTransitionExample()
+        .preferredColorScheme(.dark)
+}
 
 // MARK: - List View
 
 struct ListView: View {
     @Binding var selectedIcon: String?
     @Binding var animation: AnchorTransition
+    @Environment(\.dismiss) private var dismissExample
 
     var body: some View {
         ScrollView(.vertical) {
-            LazyVStack {
+            LazyVStack(spacing: 8) {
                 ForEach(iconDataSource, id: \.self) { icon in
                     IconView(name: icon)
                         .opacity(selectedIcon == icon ? 0 : 1)
@@ -69,6 +74,8 @@ struct ListView: View {
                             [icon: anchor]
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(16)
+                        .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 24))
                         .contentShape(Rectangle())
                         .onTapGesture {
                             selectedIcon = icon
@@ -76,14 +83,18 @@ struct ListView: View {
                         }
                 }
             }
-            .padding(32)
+            .padding(16)
         }
         .scrollContentBackground(.hidden)
-//        .toolbar {
-//            ToolbarItem(placement: .principal) {
-//                Text("")
-//            }
-//        }
+        .background(Color.black.gradient)
+        .safeAreaInset(edge: .bottom) {
+            Button { dismissExample() } label: {
+                Label("Dismiss", systemImage: "xmark.circle.fill")
+                    .symbolRenderingMode(.hierarchical)
+                    .imageScale(.large)
+                    .font(.system(size: 22).weight(.semibold))
+            }
+        }
     }
 }
 
@@ -108,10 +119,33 @@ struct DetailView: View {
                 }
                 .frame(height: 300)
                 .frame(maxWidth: .infinity)
-                .ignoresSafeArea(edges: .top)
                 .overlay(alignment: .topTrailing) {
                     dismissButton
                 }
+
+                VStack {
+                    switch selectedIcon {
+                    case iconDataSource[0]:
+                        Text("This is a beautiful heart.")
+                    case iconDataSource[1]:
+                        Text("There's electricity in the air...")
+                    case iconDataSource[2]:
+                        Text("Pack your bags!")
+                    case iconDataSource[3]:
+                        Text("Is the grass greener on the other side?")
+                    case iconDataSource[4]:
+                        Text("Yellow Starfish")
+                    case iconDataSource[5]:
+                        Text("A blueman's hand")
+                    default:
+                        EmptyView()
+                    }
+                }
+                .font(.largeTitle.weight(.bold))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(24)
+                .opacity(animation.isFinished ? 1 : 0)
+                .animation(.default, value: animation.isFinished)
 
                 Spacer()
             }
@@ -119,6 +153,7 @@ struct DetailView: View {
             // Hide Navigation Bar
             .toolbar(.hidden, for: .navigationBar)
             .navigationTitle(selectedIcon)
+            .background(Color.black.gradient)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
                     animation.isFinished = true
@@ -131,12 +166,12 @@ struct DetailView: View {
 
     var dismissButton: some View {
         Button(action: dismiss) {
-            Image(systemName: "xmark")
-                .foregroundStyle(.white)
-                .padding(10)
-                .background(.black, in: .circle)
+            Image(systemName: "xmark.circle.fill")
+                .font(.system(size: 36))
+                .symbolRenderingMode(.hierarchical)
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 24)
+        .tint(.white)
     }
 
     func dismiss() {
@@ -148,20 +183,18 @@ struct DetailView: View {
     }
 }
 
-#Preview {
-    OverlayPreferenceExample()
-}
 
 // MARK: -
 
 struct IconView: View {
     var name: String
-    var color: Color = .blue
+    var color: Color?
     var body: some View {
         Image(systemName: name)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .foregroundStyle(color)
+            .symbolRenderingMode(color == nil ? .multicolor : .monochrome)
+            .foregroundStyle(color ?? .black)
     }
 }
 
